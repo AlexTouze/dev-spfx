@@ -1,6 +1,6 @@
 {
-  "workingDir": "./temp/deploy/",
-  "account": "<!-- STORAGE ACCOUNT NAME -->",
-  "container": "hello-web-part-project",
-  "accessKey": "<!-- ACCESS KEY -->"
+    "workingDir": "./temp/deploy/",
+    "account": "atespfx",
+    "container": "helloworld-spfx",
+    "accessKey": "sBsq1vqEah1Z7JS1RcM01xWfdKH8q4IWCpGz43evYt6M1mI/uXxqnAYXBVExsy4agmLfCg8R8BuMcbrdcT0mag=="
 }

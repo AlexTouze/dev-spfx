@@ -1,3 +1,4 @@
 {
-  "cdnBasePath": "<!-- PATH TO CDN -->"
+    //"cdnBasePath": "https://atespfx.azureedge.net/helloworld-spfx",
+    "cdnBasePath": "https://ate.sharepoint.com/LacroixTest/Documents%20partages/spfxfiles/helloworld"
 }
