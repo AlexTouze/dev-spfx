@@ -12,6 +12,7 @@ import { escape } from '@microsoft/sp-lodash-subset';
 import styles from './HelloWorld.module.scss';
 import * as strings from 'helloWorldStrings';
 import { IHelloWorldWebPartProps } from './IHelloWorldWebPartProps';
+import HelloWorldPnpTest from './HelloWorldList';
 
 export default class HelloWorldWebPart extends BaseClientSideWebPart<IHelloWorldWebPartProps> {
 
@@ -27,56 +28,61 @@ export default class HelloWorldWebPart extends BaseClientSideWebPart<IHelloWorld
               <a href="https://aka.ms/spfx" class="${styles.button}">
                 <span class="${styles.label}">Learn more</span>
               </a>
+              <button type="button" onclick="${this.getUser}">Click Me!</button>
             </div>
           </div>
         </div>
       </div>`;
   }
 
+  getUser = new HelloWorldPnpTest().getCurrentUser();
+
   protected get dataVersion(): Version {
     return Version.parse('1.0');
   }
 
   protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
-  return {
-    pages: [
-      {
-        header: {
-          description: strings.PropertyPaneDescription
-        },
-        groups: [
-          {
-            groupName: strings.BasicGroupName,
-            groupFields: [
-            PropertyPaneTextField('description', {
-              label: 'Description'
-            }),
-            PropertyPaneTextField('test', {
-              label: 'Multi-line Text Field',
-              multiline: true
-            }),
-            PropertyPaneCheckbox('test1', {
-              text: 'Checkbox'
-            }),
-            PropertyPaneDropdown('test2', {
-              label: 'Dropdown',
-              options: [
-                { key: '1', text: 'One' },
-                { key: '2', text: 'Two' },
-                { key: '3', text: 'Three' },
-                { key: '4', text: 'Four' }
-              ]}),
-            PropertyPaneToggle('test3', {
-              label: 'Toggle',
-              onText: 'On',
-              offText: 'Off'
-            })
+    return {
+      pages: [
+        {
+          header: {
+            description: strings.PropertyPaneDescription
+          },
+          groups: [
+            {
+              groupName: strings.BasicGroupName,
+              groupFields: [
+                PropertyPaneTextField('description', {
+                  label: 'Description'
+                }),
+                PropertyPaneTextField('test', {
+                  label: 'Multi-line Text Field',
+                  multiline: true
+                }),
+                PropertyPaneCheckbox('test1', {
+                  text: 'Checkbox'
+                }),
+                PropertyPaneDropdown('test2', {
+                  label: 'Dropdown',
+                  options: [
+                    { key: '1', text: 'One' },
+                    { key: '2', text: 'Two' },
+                    { key: '3', text: 'Three' },
+                    { key: '4', text: 'Four' }
+                  ]
+                }),
+                PropertyPaneToggle('test3', {
+                  label: 'Toggle',
+                  onText: 'On',
+                  offText: 'Off'
+                })
+              ]
+            }
           ]
-          }
-        ]
-      }
-    ]
-  };
-}
+        }
+      ]
+    };
+  }
+  
 }
 
